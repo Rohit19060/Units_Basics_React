@@ -19,7 +19,7 @@ class App extends Component {
     };
     // console.log(newUnit);
     axios
-      .post("api/units", newUnit)
+      .post("/api/units", newUnit)
       .then((res) => {
         this.setState({ units: res.data });
       })
@@ -28,7 +28,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("api/units")
+      .get("/api/units")
       .then((res) => {
         this.setState({ units: res.data });
         // console.log(res.data);
@@ -54,7 +54,7 @@ class App extends Component {
 
   deleteUnit = (id) => {
     axios
-      .delete("api/units?id=" + id)
+      .delete("/api/units?id=" + id)
       .then((res) => {
         this.setState({ units: res.data });
       })
