@@ -15,11 +15,11 @@
     "react-scripts": "3.4.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "server": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node server.js"
+    "start": "node server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
