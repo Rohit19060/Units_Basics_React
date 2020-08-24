@@ -11,7 +11,8 @@
     "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.2"
+    "react-scripts": "3.4.2",
+    "nodemon": "^2.0.4"
   },
   "scripts": {
     "server": "node server/server.js"
@@ -30,9 +31,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "json-server": "^0.16.1",
-    "nodemon": "^2.0.4"
   }
 }
