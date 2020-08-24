@@ -1,0 +1,16 @@
+body {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.title {
+  color: rgb(49, 2, 49);
+}
+
+.center {
+  text-align: center !important;
+}
+
+.mar {
+  margin-top: 5%;
+}
