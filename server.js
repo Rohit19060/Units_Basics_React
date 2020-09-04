@@ -3,6 +3,8 @@ const fs = require("fs");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const path = require("path");
 const port = process.env.PORT || 5000;
 
@@ -11,6 +13,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(express.static(path.resolve(__dirname, "build")));
+
+const SECRET = "This is my Secret";
 
 // app.get("/", (req, res) => {
 //   res.sendFile(path.resolve(__dirname + "/build/index.html"));
@@ -65,4 +69,32 @@ app.delete("/api/units", function (req, res) {
   let rawdata1 = fs.readFileSync("server/units.json");
   let units1 = JSON.parse(rawdata1);
   res.json(units1.units);
+});
+
+const getUser = (username) => {
+  let rawdata = fs.readFileSync("server/units.json");
+  let data = JSON.parse(rawdata);
+  return data.users.filter((u) => u.username === username)[0];
+};
+
+app.post("/api/login", async (req, res) => {
+  const { username, password } = req.body;
+  const user = getUser(username);
+  console.log(user);
+  if (!user) {
+    return res.status(401).json({ error: "invalid username or password" });
+  }
+  if (await bcrypt.compare(password, user.password)) {
+    console.log("Password is good!");
+    const userForToken = {
+      id: user.id,
+      username: user.username,
+    };
+    const token = jwt.sign(userForToken, SECRET);
+    return res
+      .status(200)
+      .json({ token, username: user.username, name: user.name });
+  } else {
+    return res.status(401).json({ error: "invalid username or password" });
+  }
 });

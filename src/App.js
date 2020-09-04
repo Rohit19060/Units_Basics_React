@@ -8,20 +8,33 @@ import "./App.css";
 class App extends Component {
   state = {
     units: [],
+    user: null,
   };
 
   addUnit = (code, title, offering) => {
-    // console.log(code,title,offering);
     const newUnit = {
       code,
       title,
       offering: offering,
     };
-    // console.log(newUnit);
     axios
       .post("/api/units", newUnit)
       .then((res) => {
         this.setState({ units: res.data });
+      })
+      .catch((err) => console.error(err));
+  };
+
+  setUser = (username, password) => {
+    const user = {
+      username,
+      password,
+    };
+    axios
+      .post("/api/login", user)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({ user: res.data.name });
       })
       .catch((err) => console.error(err));
   };
@@ -31,24 +44,9 @@ class App extends Component {
       .get("/api/units")
       .then((res) => {
         this.setState({ units: res.data });
-        // console.log(res.data);
       })
       .catch((err) => {
-        if (err.response) {
-          // Server responded with a status other than 200 range
-          console.log(err.response.data);
-          console.log(err.response.status);
-          console.log(err.response.headers);
-
-          if (err.response.status === 404) {
-            alert("Error: Page Not Found");
-          }
-        } else if (err.request) {
-          // Request was made but no response
-          console.error(err.request);
-        } else {
-          console.error(err.message);
-        }
+        console.error(err);
       });
   }
 
@@ -59,14 +57,23 @@ class App extends Component {
         this.setState({ units: res.data });
       })
       .catch((err) => console.error(err));
-    // console.log(id);
+  };
+  logout = () => {
+    this.setState({ user: null });
+    console.log("Logout Successfully");
   };
 
   render() {
     return (
       <div className="App mar">
         <h2 className="title center">COMP3120: Advanced Web Development</h2>
-        <Form addUnit={this.addUnit} />
+        <Form
+          addUnit={this.addUnit}
+          user={this.state.user}
+          username={this.state.username}
+          setUser={this.setUser}
+          logout={this.logout}
+        />
         <Units units={this.state.units} deleteUnit={this.deleteUnit} />
       </div>
     );
