@@ -27,7 +27,7 @@ app.get("/api/units", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server Started listening at ${port}`);
+  console.log(`Server Started listening at http://localhost:${port}/`);
 });
 
 app.post("/api/units", function (req, res) {

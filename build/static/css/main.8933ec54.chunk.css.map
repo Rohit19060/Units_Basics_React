@@ -1,1 +1,0 @@
-{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,KACE,SAAU,CACV,aACF,CAEA,OACE,aACF,CAEA,QACE,2BACF,CAEA,KACE,aACF","file":"main.8933ec54.chunk.css","sourcesContent":["body {\n  width: 90%;\n  margin: 0 auto;\n}\n\n.title {\n  color: rgb(49, 2, 49);\n}\n\n.center {\n  text-align: center !important;\n}\n\n.mar {\n  margin-top: 5%;\n}"]}

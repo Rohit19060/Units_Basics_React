@@ -1,8 +1,12 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+
 import axios from "axios";
 import Units from "./components/Units";
 import Form from "./components/Form";
 import Home from "./components/Home";
+import Login from "./components/Login";
+import NoMatch from "./NoMatch";
 
 import "./App.css";
 
@@ -66,16 +70,41 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App mar">
-        <Home user={this.state.user} />
-        <Form
-          addUnit={this.addUnit}
-          user={this.state.user}
-          setUser={this.setUser}
-          logout={this.logout}
-        />
-        <Units units={this.state.units} deleteUnit={this.deleteUnit} />
-      </div>
+      <Router>
+        <div className="navigation">
+          <div className="navlink">
+            <Link to="/">Home</Link>
+            <Link to="/units">Units</Link>
+            <Link to="/add-units">UnitForm</Link>
+
+            {this.state.user ? (
+              <>
+                <span>{this.state.user} </span>
+                <button onClick={this.logout} className="button-primary">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link to="/login">LoginForm</Link>
+            )}
+          </div>
+        </div>
+        <Switch>
+          <Route exact path="/">
+            <Home user={this.state.user} />
+          </Route>
+          <Route path="/units">
+            <Units units={this.state.units} deleteUnit={this.deleteUnit} />
+          </Route>
+          <Route path="/add-units">
+            <Form addUnit={this.addUnit} user={this.state.user} />
+          </Route>
+          <Route path="/login">
+            <Login user={this.state.user} setUser={this.setUser} />
+          </Route>
+          <Route component={NoMatch} />
+        </Switch>
+      </Router>
     );
   }
 }

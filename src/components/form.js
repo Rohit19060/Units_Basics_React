@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 class Form extends Component {
   constructor(props) {
     super(props);
@@ -11,12 +10,9 @@ class Form extends Component {
         { id: 2, value: "S2" },
       ],
       checkedItems: new Map(),
-      username: "",
-      password: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.formHandler = this.formHandler.bind(this);
   }
 
   handleSubmit = (e) => {
@@ -48,11 +44,6 @@ class Form extends Component {
       checkedItems: prevState.checkedItems.set(item, isChecked),
     }));
   }
-
-  formHandler = (e) => {
-    e.preventDefault();
-    this.props.setUser(this.state.username, this.state.password);
-  };
 
   render() {
     var user = this.props.user;
@@ -92,36 +83,10 @@ class Form extends Component {
             ))}
             <input type="submit" value="Submit" className="button-primary" />
           </form>
-          <div className="columns four">
-            <button
-              onClick={this.props.logout.bind(this, this.props.user)}
-              className="button-primary"
-            >
-              Logout
-            </button>
-          </div>
         </div>
       );
     } else {
-      return (
-        <form onSubmit={this.formHandler}>
-          <input
-            type="text"
-            name="username"
-            onChange={this.onChange}
-            placeholder="Username"
-          />
-          <br></br>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={this.onChange}
-          />
-          <br></br>
-          <input type="submit" value="Login" className="button-primary" />
-        </form>
-      );
+      return <div className="row">You need to login first to add Units</div>;
     }
   }
 }
