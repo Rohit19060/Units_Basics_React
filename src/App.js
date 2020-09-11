@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Units from "./components/Units";
-import Form from "./components/Form";
+// import Form from "./components/Form";
 import Home from "./components/Home";
 
 import "./App.css";
@@ -68,12 +68,12 @@ class App extends Component {
     return (
       <div className="App mar">
         <Home user={this.state.user} />
-        <Form
+        {/* <Form
           addUnit={this.addUnit}
           user={this.state.user}
           setUser={this.setUser}
           logout={this.logout}
-        />
+        /> */}
         <Units units={this.state.units} deleteUnit={this.deleteUnit} />
       </div>
     );
