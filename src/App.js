@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Units from "./Components/Units";
-import Home from "./Components/Home";
-import Form from "./Components/Form";
+import Units from "./Components/Units.js";
+import Home from "./Components/Home.js";
+import Form from "./Components/Form.js";
 
 import "./App.css";
 
