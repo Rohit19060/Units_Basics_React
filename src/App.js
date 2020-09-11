@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Units from "./components/Units";
+import Form from "./components/Form";
+import Home from "./components/Home";
 
 import "./App.css";
-
-import Form from "./Components/Form.js";
-import Home from "./Components/Home.js";
-import Units from "./Components/Units.js";
 
 class App extends Component {
   state = {
