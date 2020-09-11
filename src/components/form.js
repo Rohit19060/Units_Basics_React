@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 class Form extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       code: "",
       title: "",
