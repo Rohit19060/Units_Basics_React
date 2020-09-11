@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 class Unit extends Component {
   state = {
@@ -20,7 +21,10 @@ class Unit extends Component {
     return (
       <div className="row">
         <h5 className="six columns">
-          {this.props.unit.code} - {this.state.title}
+          <Link to={`/unit/${this.props.unit.code}`}>
+            {this.props.unit.code}
+          </Link>
+          - {this.state.title}
         </h5>
         <button
           className="button-primary two columns"
