@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Units from "./components/Units";
-import Form from "./components/form";
+import Form from "./components/Form";
+import Home from "./components/Home";
 
 import "./App.css";
 
@@ -66,11 +67,10 @@ class App extends Component {
   render() {
     return (
       <div className="App mar">
-        <h2 className="title center">COMP3120: Advanced Web Development</h2>
+        <Home user={this.state.user} />
         <Form
           addUnit={this.addUnit}
           user={this.state.user}
-          username={this.state.username}
           setUser={this.setUser}
           logout={this.logout}
         />

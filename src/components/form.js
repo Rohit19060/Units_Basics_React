@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 class Form extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       code: "",
       title: "",
@@ -93,7 +93,6 @@ class Form extends Component {
             <input type="submit" value="Submit" className="button-primary" />
           </form>
           <div className="columns four">
-            <h5>Logged In {user}</h5>
             <button
               onClick={this.props.logout.bind(this, this.props.user)}
               className="button-primary"
@@ -106,7 +105,6 @@ class Form extends Component {
     } else {
       return (
         <form onSubmit={this.formHandler}>
-          <h6>Login to add Units</h6>
           <input
             type="text"
             name="username"

@@ -80,12 +80,12 @@ const getUser = (username) => {
 app.post("/api/login", async (req, res) => {
   const { username, password } = req.body;
   const user = getUser(username);
-  console.log(user);
+  // console.log(user);
   if (!user) {
     return res.status(401).json({ error: "invalid username or password" });
   }
   if (await bcrypt.compare(password, user.password)) {
-    console.log("Password is good!");
+    // console.log("Password is good!");
     const userForToken = {
       id: user.id,
       username: user.username,
