@@ -32,7 +32,7 @@ test("Check Title", () => {
       <Unit unit={unit} deleteUnit={deleteUnit} />
     </Router>
   );
-  expect(component.getByTestId("abcd")).toHaveTextContent("abcd - New");
+  expect(component.getByTestId("abcd")).toHaveTextContent("abcd- New");
 });
 
 test("Delete button Fire event Check", () => {

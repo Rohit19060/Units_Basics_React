@@ -20,7 +20,7 @@ class Unit extends Component {
   render() {
     return (
       <div className="row">
-        <h5 className="six columns">
+        <h5 className="six columns" data-testid={this.props.unit.code}>
           <Link to={`/unit/${this.props.unit.code}`}>
             {this.props.unit.code}
           </Link>
