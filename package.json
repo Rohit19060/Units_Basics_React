@@ -1,7 +1,23 @@
 {
-  "name": "week",
-  "version": "0.1.0",
+  "name": "units-react-with-auth",
+  "version": "1.0.0",
+  "description": "App to show react authentication and static working",
+  "author": {
+    "name": "Rohit Jain",
+    "email": "rohitjain19060@gmail.com",
+    "url": "https://kingtechnologies.in/"
+  },
+  "contributors": [],
+  "main": "./server.js",
+  "homepage": "https://kingtechnologies.in/",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rohit19060/units-react-with-auth"
+  },
+  "bugs": {
+    "url": "https://github.com/Rohit19060/units-react-with-auth/issues"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/user-event": "^7.1.2",
@@ -24,9 +40,14 @@
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test",
+    "build": "react-scripts build",
     "eject": "react-scripts eject",
     "dev": "concurrently \" node server\" \" npm run start\"",
-    "server": "node server"
+    "serve": "node server"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.5.0",
+    "json-server": "^0.16.1"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,9 +64,17 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@testing-library/react": "^9.5.0",
-    "json-server": "^0.16.1"
+  "engines": {
+    "node": ">= 15.7.0",
+    "npm": ">= 7.0.0",
+    "yarn": "^1.22.0"
   },
-  "proxy": "http://localhost:5000"
+  "keywords": [
+    "units",
+    "react",
+    "units-app",
+    "authentication"
+  ],
+  "license": "MIT",
+  "proxy": "http://localhost:8000"
 }

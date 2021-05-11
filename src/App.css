@@ -15,25 +15,41 @@ body {
   margin-top: 5%;
 }
 
+.p-10 {
+  padding: 0px 60px;
+}
+
 .navigation {
-  max-height: 85px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255 0.2) 25%,
-      rgba(255, 255, 255, 0.2) 75%,
-      rgba(255, 255, 255, 0) 100%);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1),
     inset 0 0 1px rgba(255, 255, 255, 0.6);
-  margin-bottom: 40px;
+  margin: 40px;
+  padding: 10px 40px;
 }
 
-.navigation a {
-  padding: 0px 20px;
-  font-weight: 300;
+.logout {
+  color: #33c3f0;
+  cursor: pointer;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.navLink > * {
   font-size: 25px;
+  font-weight: 300;
+  margin: 10px;
 }
 
 .navigation form {

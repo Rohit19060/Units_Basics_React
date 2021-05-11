@@ -5,14 +5,15 @@ class Home extends Component {
     var user = this.props.user;
     if (user) {
       return (
-        <div className="row">
-          <h1>Happy to see you, {user}</h1>
+        <div className="row center">
+          <h1>Happy to see you here, {user}</h1>
         </div>
       );
     } else {
       return (
-        <div className="row">
-          <h1>Welcome to our Unit App, You have not logged in</h1>
+        <div className="row center">
+          <h1>Welcome to our Units app</h1>
+          <h3>Login to add units</h3>
         </div>
       );
     }

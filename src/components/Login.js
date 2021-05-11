@@ -20,10 +20,10 @@ class Login extends Component {
   render() {
     var user = this.props.user;
     if (user) {
-      return <div className="row">Logged In Successful</div>;
+      return <div className="row center">Logged In Successful</div>;
     } else {
       return (
-        <form onSubmit={this.formHandler}>
+        <form onSubmit={this.formHandler} className="row center">
           <input
             type="text"
             name="username"

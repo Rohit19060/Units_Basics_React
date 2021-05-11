@@ -49,7 +49,7 @@ class Form extends Component {
     var user = this.props.user;
     if (user) {
       return (
-        <div className="row">
+        <div className="row form">
           <form onSubmit={this.handleSubmit} className="columns seven">
             <div className="row">
               <input

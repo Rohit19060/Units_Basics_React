@@ -6,7 +6,7 @@ const app = express();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const path = require("path");
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,8 +21,8 @@ const SECRET = "This is my Secret";
 // });
 
 app.get("/api/units", (req, res) => {
-  let rawdata = fs.readFileSync("server/units.json");
-  let units = JSON.parse(rawdata);
+  let rawData = fs.readFileSync("server/units.json");
+  let units = JSON.parse(rawData);
   res.json(units.units);
 });
 
@@ -31,18 +31,18 @@ app.listen(port, () => {
 });
 
 app.post("/api/units", function (req, res) {
-  let rawdata = fs.readFileSync("server/units.json");
-  let units = JSON.parse(rawdata);
+  let rawData = fs.readFileSync("server/units.json");
+  let units = JSON.parse(rawData);
 
-  var pdata = JSON.stringify(req.body);
-  var x = JSON.parse(pdata);
+  var pData = JSON.stringify(req.body);
+  var x = JSON.parse(pData);
 
   x["id"] = units["units"].length + 1;
 
   units["units"].push(x);
   fs.writeFileSync("server/units.json", JSON.stringify(units), null, 4);
-  let rawdata1 = fs.readFileSync("server/units.json");
-  let units1 = JSON.parse(rawdata1);
+  let rawData1 = fs.readFileSync("server/units.json");
+  let units1 = JSON.parse(rawData1);
   res.json(units1.units);
 });
 
@@ -51,8 +51,8 @@ app.put("/api/units", function (req, res) {
 });
 
 app.delete("/api/units", function (req, res) {
-  let rawdata = fs.readFileSync("server/units.json");
-  let units = JSON.parse(rawdata);
+  let rawData = fs.readFileSync("server/units.json");
+  let units = JSON.parse(rawData);
 
   var length = units["units"].length;
   var id = parseInt(req.query.id);
@@ -66,14 +66,14 @@ app.delete("/api/units", function (req, res) {
   }
   units["units"] = x;
   fs.writeFileSync("server/units.json", JSON.stringify(units), null, 4);
-  let rawdata1 = fs.readFileSync("server/units.json");
-  let units1 = JSON.parse(rawdata1);
+  let rawData1 = fs.readFileSync("server/units.json");
+  let units1 = JSON.parse(rawData1);
   res.json(units1.units);
 });
 
 const getUser = (username) => {
-  let rawdata = fs.readFileSync("server/units.json");
-  let data = JSON.parse(rawdata);
+  let rawData = fs.readFileSync("server/units.json");
+  let data = JSON.parse(rawData);
   return data.users.filter((u) => u.username === username)[0];
 };
 

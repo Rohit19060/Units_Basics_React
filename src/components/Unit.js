@@ -5,13 +5,13 @@ class Unit extends Component {
   state = {
     title: this.props.unit.title,
   };
-  changeup = (title) => {
+  ChangeUpperCase = (title) => {
     this.setState({
       title: title.toUpperCase(),
     });
   };
 
-  changedown = (title) => {
+  ChangeLowerCase = (title) => {
     this.setState({
       title: title.toLowerCase(),
     });
@@ -19,8 +19,8 @@ class Unit extends Component {
 
   render() {
     return (
-      <div className="row">
-        <h5 className="six columns" data-testid={this.props.unit.code}>
+      <div className="row p-10">
+        <h5 className="six columns" data-test-id={this.props.unit.code}>
           <Link to={`/unit/${this.props.unit.code}`}>
             {this.props.unit.code}
           </Link>
@@ -28,15 +28,15 @@ class Unit extends Component {
         </h5>
         <button
           className="button-primary two columns"
-          onClick={() => this.changeup(this.props.unit.title)}
+          onClick={() => this.ChangeUpperCase(this.props.unit.title)}
         >
-          Up
+          UpperCase
         </button>{" "}
         <button
           className="button-primary two columns"
-          onClick={() => this.changedown(this.props.unit.title)}
+          onClick={() => this.ChangeLowerCase(this.props.unit.title)}
         >
-          Down
+          LowerCase
         </button>{" "}
         <button
           className="button-primary two columns"

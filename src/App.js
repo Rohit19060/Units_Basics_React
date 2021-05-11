@@ -79,19 +79,18 @@ class App extends Component {
     return (
       <Router>
         <div className="navigation">
-          <div className="navlink">
+          <div className="navLink">
             <Link to="/">Home</Link>
             <Link to="/units">Units</Link>
-            <Link to="/add-units">UnitForm</Link>
+            <Link to="/add-units">Add Unit</Link>
             {this.state.user ? (
               <>
-                <span>{this.state.user} </span>
-                <button onClick={this.logout} className="button-primary">
+                <span onClick={this.logout} className="logout">
                   Logout
-                </button>
+                </span>
               </>
             ) : (
-              <Link to="/login">LoginForm</Link>
+                <Link to="/login">Login</Link>
             )}
           </div>
         </div>
